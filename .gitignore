@@ -1,0 +1,31 @@
+# ---- Secrets (NEVER commit) ----
+.env
+.env.*
+!.env.example
+
+# ---- Java / Maven ----
+target/
+*.class
+*.log
+*.jar
+*.war
+hs_err_pid*
+
+# ---- Node / Vite ----
+node_modules/
+dist/
+.vite/
+npm-debug.log*
+
+# ---- IDEs ----
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+
+# ---- Docker volumes / local data ----
+pgdata/

@@ -1,0 +1,26 @@
+# Starts a local PostgreSQL database for development.
+# Usage:  docker compose up -d      (start)
+#         docker compose down       (stop, data is kept)
+#         docker compose down -v    (stop AND delete all data)
+services:
+  db:
+    image: postgres:16
+    container_name: transithub-db
+    restart: unless-stopped
+    environment:
+      # Values come from your local .env file (see .env.example)
+      POSTGRES_DB: ${DATABASE_NAME:?Set DATABASE_NAME in .env}
+      POSTGRES_USER: ${DATABASE_USERNAME:?Set DATABASE_USERNAME in .env}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?Set DATABASE_PASSWORD in .env}
+    ports:
+      - "5432:5432"
+    volumes:
+      - transithub_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE_USERNAME} -d ${DATABASE_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  transithub_pgdata:
