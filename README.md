@@ -34,7 +34,7 @@ _Filled in as features are built (Phases 3–16)._
 | Backend | Java, Spring Boot, Spring Web, Spring Data JPA, Spring Security (JWT), Maven |
 | Database | PostgreSQL |
 | Map | Leaflet + OpenStreetMap |
-| Tools | Git, GitHub, Docker Compose, VS Code / IntelliJ IDEA |
+| Tools | Git, GitHub, Docker Compose, VS Code
 
 ## Project Structure
 ```
